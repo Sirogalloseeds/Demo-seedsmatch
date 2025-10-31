@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeedsMatch - Demo & Video Comercial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 30px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #00d4aa;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero .highlight {
+            color: #00d4aa;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #999;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* Video Sections */
+        .video-section {
+            padding: 60px 0;
+            border-top: 1px solid #222;
+        }
+
+        .video-section:nth-child(even) {
+            background-color: #0f0f0f;
+        }
+
+        .video-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .video-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .video-header p {
+            font-size: 18px;
+            color: #999;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .video-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 212, 170, 0.1);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            color: #666;
+            font-size: 18px;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 30px;
+            background: #1a1a1a;
+            border-radius: 8px;
+            border: 1px solid #222;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #00d4aa;
+        }
+
+        .feature p {
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #00d4aa 0%, #00a882 100%);
+            color: #0a0a0a;
+        }
+
+        .cta-section h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: #0a0a0a;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #222;
+            color: #666;
+        }
+
+        footer a {
+            color: #00d4aa;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .video-header h2 {
+                font-size: 28px;
+            }
+
+            .cta-section h2 {
+                font-size: 32px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #00d4aa;
+            color: #0a0a0a;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">Seeds<span>Match</span></div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <span class="badge">Powered by AI</span>
+            <h1>La plataforma que <span class="highlight">conecta empresas</span><br>con el talento perfecto</h1>
+            <p>Descubre cómo SeedsMatch utiliza inteligencia artificial para encontrar el match perfecto en tiempo récord</p>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section>
+        <div class="container">
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Match en 72 horas</h3>
+                    <p>Encuentra el talento perfecto en tiempo récord</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>95% de éxito</h3>
+                    <p>Tasa de éxito en contrataciones validada</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <h3>IA + Expertise</h3>
+                    <p>Combinamos tecnología con criterio humano</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Comercial -->
+    <section class="video-section">
+        <div class="container">
+            <div class="video-header">
+                <h2>Conoce SeedsMatch</h2>
+                <p>Descubre cómo transformamos la forma en que las empresas encuentran y contratan talento en Latinoamérica</p>
+            </div>
+            <div class="video-wrapper">
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1JFa-TnrvTMW1r5ZDLrjlHrzEl5Wjbxo0/preview" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo G&T Continental -->
+    <section class="video-section">
+        <div class="container">
+            <div class="video-header">
+                <span class="badge">Caso de Éxito</span>
+                <h2>Demo: Banco G&T Continental</h2>
+                <p>Mira cómo SeedsMatch ayudó al Banco G&T Continental a optimizar su proceso de contratación con resultados excepcionales</p>
+            </div>
+            <div class="video-wrapper">
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1dhaTgAHv8G8AKT_tzqE12hSYoU8EVNJg/preview" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>¿Listo para transformar tu proceso de contratación?</h2>
+            <p>Agenda una demo personalizada y descubre cómo SeedsMatch puede ayudar a tu empresa</p>
+            <a href="https://www.weareseeds.com/" class="cta-button">Visitar Seeds</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Seeds. Todos los derechos reservados.</p>
+            <p><a href="https://www.weareseeds.com/" target="_blank">www.weareseeds.com</a></p>
+        </div>
+    </footer>
+</body>
+</html>
